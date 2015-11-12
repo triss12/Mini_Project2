@@ -1,18 +1,21 @@
 class Review:
 	"""
 	Because why the fuck not?
+
+	Now without the tags inside of the attributes!
 	"""
 	def __init__(self, attributes):
-		self.pid = attributes[0]
-		self.ptitle = attributes[1]
-		self.price = attributes[2]
-		self.userid = attributes[3]
-		self.username = attributes[4]
-		self.helpful = attributes[5]
-		self.rscore = attributes[6]
-		self.rtime = attributes[7]
-		self.summary = attributes[8]
-		self.ftext = attributes[9]
+		self.pid = attributes[0].split(' ', 1)[1]
+		self.ptitle = attributes[1].split(' ', 1)[1]
+		self.price = attributes[2].split(' ', 1)[1]
+		self.userid = attributes[3].split(' ', 1)[1]
+		self.username = attributes[4].split(' ', 1)[1]
+		self.helpful = attributes[5].split(' ', 1)[1]
+		self.rscore = attributes[6].split(' ', 1)[1]
+		self.rtime = attributes[7].split(' ', 1)[1]
+		self.summary = attributes[8].split(' ', 1)[1]
+		self.ftext = attributes[9].split(' ', 1)[1]
+
 
 def phase_one():
 	"""
