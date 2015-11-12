@@ -1,1 +1,36 @@
-# This is main
+def phase_one():
+	"""
+	 Read the file "small-date.txt" and write it into 
+	 the four files described in the assignment spec
+	 """
+
+	#filename = input("Enter the name of the file: ")
+	# or no!
+
+	txt = open("small-data.txt")
+	# print(txt.read()) # This prints the file to the terminal
+
+
+	# Open reviews to write to it
+
+	# We probably want to open it in buffering mode, 
+	# If we're going to change the input around
+	# Actually I have no idea what buffering mode is
+	reviews = open("reviews.txt", 'w')
+	reviews.write(txt.read().replace('"', '&quot').replace("\\","\\\\" ))
+	
+
+	# open the rest of the files to write to them
+	pterms = open("pterms.txt", 'w')
+	rterms = open("rterms.txt", 'w')
+	scores = open("scores.txt", 'w')
+
+	# close our files
+	txt.close()
+	reviews.close()
+	pterms.close()
+	rterms.close()
+	scores.close()
+
+phase_one()
+
