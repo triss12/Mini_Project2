@@ -8,8 +8,13 @@ def phase_one():
 	# or no!
 
 	txt = open("small-data.txt")
-	# print(txt.read()) # This prints the file to the terminal
-
+	
+	# Create a new file, replacing " with &quot
+	# and \ with \\
+	temp = open("temp.txt", 'w')
+	temp.write(txt.read().replace('"', '&quot').replace("\\", "\\\\"))
+	temp.close()
+	emp = open("temp.txt")
 
 	# Open reviews to write to it
 
@@ -17,7 +22,7 @@ def phase_one():
 	# If we're going to change the input around
 	# Actually I have no idea what buffering mode is
 	reviews = open("reviews.txt", 'w')
-	reviews.write(txt.read().replace('"', '&quot').replace("\\","\\\\" ))
+	reviews.write(temp.read())
 	
 
 	# open the rest of the files to write to them
@@ -27,10 +32,12 @@ def phase_one():
 
 	# close our files
 	txt.close()
+	temp.close()
 	reviews.close()
 	pterms.close()
 	rterms.close()
 	scores.close()
 
 phase_one()
+
 
