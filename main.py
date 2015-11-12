@@ -49,13 +49,12 @@ def phase_one():
 	print(len(reviews_list))
 
 	# Open reviews to write to it
-
-	# We probably want to open it in buffering mode, 
-	# If we're going to change the input around
-	# Actually I have no idea what buffering mode is
+	# create "reviews.txt"	
 	reviews = open("reviews.txt", 'w')
-	reviews.write(temp.read())
-	
+	for i in reviews_list:
+		reviews.write(i.pid +',"'+i.ptitle+'",'+i.price+","+i.userid+',"'+i.username+'",'+i.helpful+","+i.rscore+","+i.rtime+',"'+i.summary+'","'+i.ftext+'"\n')
+	reviews.close()
+
 
 	# open the rest of the files to write to them
 	pterms = open("pterms.txt", 'w')
@@ -65,7 +64,6 @@ def phase_one():
 	# close our files
 	txt.close()
 	temp.close()
-	reviews.close()
 	pterms.close()
 	rterms.close()
 	scores.close()
