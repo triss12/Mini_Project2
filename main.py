@@ -32,13 +32,17 @@ def phase_one():
 	temp.close()
 	temp = open("temp.txt")
 
-	# create the review objects
+# create the review objects
 	reviews_list = []
+	single_r = []
 	for line in temp.readlines():
-		review = []
-		for i in range(10):
-			review.append(line)
-		reviews_list.append(Review(review))
+		if line == '\n':
+			reviews_list.append(Review(single_r))
+			single_r = []
+		else:
+			single_r.append(line)
+		
+	print(len(reviews_list))
 
 	# Open reviews to write to it
 
