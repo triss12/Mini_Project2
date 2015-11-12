@@ -1,3 +1,19 @@
+class Review:
+	"""
+	Because why the fuck not?
+	"""
+	def __init__(self, attributes):
+		self.pid = attributes[0]
+		self.ptitle = attributes[1]
+		self.price = attributes[2]
+		self.userid = attributes[3]
+		self.username = attributes[4]
+		self.helpful = attributes[5]
+		self.rscore = attributes[6]
+		self.rtime = attributes[7]
+		self.summary = attributes[8]
+		self.ftext = attributes[9]
+
 def phase_one():
 	"""
 	 Read the file "small-date.txt" and write it into 
@@ -14,7 +30,15 @@ def phase_one():
 	temp = open("temp.txt", 'w')
 	temp.write(txt.read().replace('"', '&quot').replace("\\", "\\\\"))
 	temp.close()
-	emp = open("temp.txt")
+	temp = open("temp.txt")
+
+	# create the review objects
+	reviews_list = []
+	for line in temp.readlines():
+		review = []
+		for i in range(10):
+			review.append(line)
+		reviews_list.append(Review(review))
 
 	# Open reviews to write to it
 
